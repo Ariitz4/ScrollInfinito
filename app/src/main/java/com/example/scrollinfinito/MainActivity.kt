@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         spinnerCategorias.adapter = adapter
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        tareaAdapter = TareaAdapter(tareas)
+        tareaAdapter = TareaAdapter(tareas, tareasLimpieza, tareasCompra, tareasRecordatorio, tareasReuniones, tareasDeberes)
         recyclerView.adapter = tareaAdapter
 
         buttonAñadir.setOnClickListener {
@@ -88,12 +88,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Agregar listeners para los CheckBoxes
-        checkBoxLimpieza.setOnCheckedChangeListener { _, _ -> actualizarTareas() }
-        checkBoxCompra.setOnCheckedChangeListener { _, _ -> actualizarTareas() }
-        checkBoxRecordatorio.setOnCheckedChangeListener { _, _ -> actualizarTareas() }
-        checkBoxReuniones.setOnCheckedChangeListener { _, _ -> actualizarTareas() }
-        checkBoxDeberes.setOnCheckedChangeListener { _, _ -> actualizarTareas() }
+
+        checkBoxLimpieza.setOnCheckedChangeListener { _, isChecked -> manejarCheckBox(checkBoxLimpieza, isChecked) }
+        checkBoxCompra.setOnCheckedChangeListener { _, isChecked -> manejarCheckBox(checkBoxCompra, isChecked) }
+        checkBoxRecordatorio.setOnCheckedChangeListener { _, isChecked -> manejarCheckBox(checkBoxRecordatorio, isChecked) }
+        checkBoxReuniones.setOnCheckedChangeListener { _, isChecked -> manejarCheckBox(checkBoxReuniones, isChecked) }
+        checkBoxDeberes.setOnCheckedChangeListener { _, isChecked -> manejarCheckBox(checkBoxDeberes, isChecked) }
+    }
+
+    private fun manejarCheckBox(checkbox: CheckBox, isChecked: Boolean) {
+        val checkboxes = listOf(checkBoxLimpieza, checkBoxCompra, checkBoxRecordatorio, checkBoxReuniones, checkBoxDeberes)
+
+
+        val checkedCount = checkboxes.count { it.isChecked }
+
+
+        if (!isChecked && checkedCount == 0) {
+
+            checkbox.isChecked = true
+        } else {
+
+            actualizarTareas()
+        }
     }
 
     private fun actualizarTareas() {
