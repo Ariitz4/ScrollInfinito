@@ -30,6 +30,7 @@ class TareaAdapter(private val tareas: MutableList<String>) :
         }
     }
 
+
     fun eliminarTarea(position: Int) {
         if (position >= 0 && position < tareas.size) {
             tareas.removeAt(position)

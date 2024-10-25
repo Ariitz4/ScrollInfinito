@@ -32,17 +32,49 @@
         android:layout_marginTop="16dp"
         android:textSize="16sp" />
 
-
     <Spinner
         android:id="@+id/spinnerCategorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTareas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="16dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtrar por categoría"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/checkBoxLimpieza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpieza" />
+
+    <CheckBox
+        android:id="@+id/checkBoxCompra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compra" />
+
+    <CheckBox
+        android:id="@+id/checkBoxRecordatorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordatorio" />
+
+    <CheckBox
+        android:id="@+id/checkBoxReuniones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reuniones" />
+
 </LinearLayout>
