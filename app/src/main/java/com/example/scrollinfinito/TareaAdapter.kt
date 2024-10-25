@@ -29,7 +29,11 @@ class TareaAdapter(private val tareas: MutableList<String>) :
             notifyItemInserted(0)
         }
     }
-
+    fun actualizarTareas(nuevasTareas: List<String>) {
+        tareas.clear()
+        tareas.addAll(nuevasTareas)
+        notifyDataSetChanged()
+    }
 
     fun eliminarTarea(position: Int) {
         if (position >= 0 && position < tareas.size) {
